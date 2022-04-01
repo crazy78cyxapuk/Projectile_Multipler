@@ -18,8 +18,12 @@ namespace Arrow
         [SerializeField] private float _increaseRadius;
         private int _nextArrowCount;
 
-        [SerializeField] private List<Transform> _allArrows = new List<Transform>();
+        private List<Transform> _allArrows = new List<Transform>();
         private float _firstRadius;
+        
+        public delegate void OnArrowsChanged(int arrowCount);
+
+        public static event OnArrowsChanged ArrowsChanged;
         
         private void Awake()
         {
@@ -36,9 +40,8 @@ namespace Arrow
                 if (_arrowCount >= _maxArrowCount)
                 {
                     _arrowCount = nextArrowCount;
-                    //_arrowCount = _maxArrowCount;
 
-                    //ArrowsChanged(_arrowCount);
+                    ArrowsChanged(_arrowCount);
                     return;
                 }
 
@@ -63,10 +66,9 @@ namespace Arrow
                 }
 
                 _arrowCount++;
-
             }
 
-            //ArrowsChanged(_arrowCount);
+            ArrowsChanged(_arrowCount);
         }
 
         public void RemoveArrow(int removeArrowsCount)
@@ -89,13 +91,13 @@ namespace Arrow
                     if (_nextArrowCount >= _maxArrowCount)
                     {
                         _arrowCount = _nextArrowCount; 
-                        //ArrowsChanged(_arrowCount);
+                        ArrowsChanged(_arrowCount);
                         return;
                     }
                     else
                     {
                         _arrowCount--;
-                        //ArrowsChanged(_arrowCount);
+                        ArrowsChanged(_arrowCount);
                         continue;
                     }
                 }
@@ -110,6 +112,18 @@ namespace Arrow
                 }
                 _arrowCount--;
             }
+            
+            ArrowsChanged(_arrowCount);
+        }
+
+        public int GetMaxCountArrows()
+        {
+            return _maxArrowCount;
+        }
+
+        public int GetMinCountArrows()
+        {
+            return _minArrowCount;
         }
     }
 }
