@@ -1,0 +1,115 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+
+namespace Arrow
+{
+    public class ArrowSpawn : MonoBehaviour
+    {
+        [SerializeField] private Transform _arrow;
+        [SerializeField] private int _maxArrowCount = 199;
+        [SerializeField] private int _minArrowCount = 33;
+        
+        [SerializeField] private int _arrowCount;
+        [SerializeField] private float _radius = 0.01f;
+        [SerializeField] private float _r = 12f;
+        [SerializeField] private float _increaseRadius;
+        private int _nextArrowCount;
+
+        [SerializeField] private List<Transform> _allArrows = new List<Transform>();
+        private float _firstRadius;
+        
+        private void Awake()
+        {
+            _arrowCount = _minArrowCount;
+            _firstRadius = _radius;
+        }
+        
+        public void AddArrows(int newArrowsCount)
+        {
+            int nextArrowCount = _arrowCount + newArrowsCount;
+
+            for (int i = _arrowCount; i < nextArrowCount; i++)
+            {
+                if (_arrowCount >= _maxArrowCount)
+                {
+                    _arrowCount = nextArrowCount;
+                    //_arrowCount = _maxArrowCount;
+
+                    //ArrowsChanged(_arrowCount);
+                    return;
+                }
+
+                Vector3 rotation = new Vector3(0, 90, 0);
+                Transform arrow = Instantiate(_arrow, transform.position, _arrow.rotation, transform);
+                arrow.localEulerAngles = rotation;
+                
+                _allArrows.Add(arrow);
+
+                float theta = i * _r * Mathf.PI / _maxArrowCount;
+                float x = Mathf.Sin(theta) * _radius;
+                float y = Mathf.Cos(theta) * _radius;
+
+                transform.localScale = Vector3.one;
+                arrow.transform.localPosition = new Vector3(x, y, 0); // + transform.position;
+                arrow.name = (i - 33).ToString();
+
+                if (i % 33 == 0)
+                {
+                    //_radius += 0.03f;
+                    _radius += _increaseRadius;
+                }
+
+                _arrowCount++;
+
+            }
+
+            //ArrowsChanged(_arrowCount);
+        }
+
+        public void RemoveArrow(int removeArrowsCount)
+        {
+            _nextArrowCount = _arrowCount - removeArrowsCount;
+
+            //GAME OVER!!!
+
+            if (_nextArrowCount <= _minArrowCount - 1)
+            {
+                Debug.LogError("GAME OVER!!!");
+                _nextArrowCount = _minArrowCount;
+                _radius = _firstRadius;
+            }
+            
+            for (int i = _arrowCount; i > _nextArrowCount; i--)
+            {
+                if (_arrowCount >= _maxArrowCount)
+                {
+                    if (_nextArrowCount >= _maxArrowCount)
+                    {
+                        _arrowCount = _nextArrowCount; 
+                        //ArrowsChanged(_arrowCount);
+                        return;
+                    }
+                    else
+                    {
+                        _arrowCount--;
+                        //ArrowsChanged(_arrowCount);
+                        continue;
+                    }
+                }
+                
+                Transform arrow = _allArrows[_allArrows.Count - 1];
+                _allArrows.Remove(arrow);
+                arrow.gameObject.SetActive(false);
+
+                if (i % 33 == 0 && _radius != _firstRadius)
+                {
+                    _radius -= _increaseRadius;
+                }
+                _arrowCount--;
+            }
+        }
+    }
+}
