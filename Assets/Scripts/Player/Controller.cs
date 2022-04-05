@@ -15,13 +15,8 @@ namespace Player
         private Vector2 _direction;
         private float _minDistanceTouch = 3f;
         private float _deceleration = 350f;
-        
-        private void Awake()
-        {
-            //_arrowPosition.AddArrows(1);
-        }
 
-        private void LateUpdate()
+        private void Update()
         {
             CheckInput();
         }
@@ -66,6 +61,7 @@ namespace Player
                     
                     case TouchPhase.Stationary:
                         _startPos = Input.mousePosition;
+                        //_movement.StopMove();
                         break;
                 }
             }
@@ -74,25 +70,56 @@ namespace Player
         private void CheckMousePosition()
         {
             Vector2 mousePos = Input.mousePosition;
-            _direction = (mousePos - _startPos) / _deceleration;
+            _direction = (mousePos - _startPos);
+            _direction = CheckMaxDirection(_direction);
 
             float distanceMouse = Vector2.Distance(_startPos, mousePos);
             if (distanceMouse > _minDistanceTouch)
             {
-                if (_direction.x > 0)
+                // if (_direction.x > 0)
+                // {
+                //     _movement.MoveToSide(TargetSide.Right);
+                // }
+                // else
+                // {
+                //     _movement.MoveToSide(TargetSide.Left);
+                // }
+                
+                _movement.MoveToSide(_direction);
+            }
+            
+            _startPos = mousePos;
+        }
+
+        private Vector2 CheckMaxDirection(Vector2 direction)
+        {
+            float max = 20f;
+            
+            if (Mathf.Abs(direction.x) > max)
+            {
+                if (direction.x < 0)
                 {
-                    _movement.MoveToSide(TargetSide.Right);
+                    direction.x = -max;
                 }
                 else
                 {
-                    _movement.MoveToSide(TargetSide.Left);
+                    direction.x = max;
                 }
             }
-        }
 
-        private void StartAllMovements()
-        {
-            
+            if (Mathf.Abs(direction.y) > max)
+            {
+                if (direction.y < 0)
+                {
+                    direction.y = -max;
+                }
+                else
+                {
+                    direction.y = max;
+                }
+            }
+
+            return direction;
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Gates;
 using UnityEngine;
 
 namespace Arrow
@@ -28,6 +29,15 @@ namespace Arrow
             ArrowSpawn.ArrowsChanged -= ChangeCollision;
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.TryGetComponent(out Gate gate))
+            {
+                GetDamage(gate.GetType(), gate.GetCountBonus());
+                gate.HideGate();
+            }
+        }
+
         private void Init()
         {
             _maxArrows = _arrowSpawn.GetMaxCountArrows();
@@ -49,6 +59,30 @@ namespace Arrow
                 {
                     collider.size = new Vector3(scaleSize, collider.size.y, collider.size.z);
                 }
+            }
+        }
+        
+        private void GetDamage(TypeGate typeGate, int count)
+        {
+            switch (typeGate)
+            {
+                case TypeGate.Addition:
+                    _arrowSpawn.AddArrows(count);
+                    break;
+                
+                case TypeGate.Division:
+                    int targetSub = _arrowSpawn.GetCountArrows() - _arrowSpawn.GetCountArrows() / count;
+                    _arrowSpawn.RemoveArrow(targetSub);
+                    break;
+                
+                case TypeGate.Multiplication:
+                    int target = _arrowSpawn.GetCountArrows() * count - _arrowSpawn.GetCountArrows();
+                    _arrowSpawn.AddArrows(target);
+                    break;
+                
+                case TypeGate.Subtraction:
+                    _arrowSpawn.RemoveArrow(count);
+                    break;
             }
         }
     }

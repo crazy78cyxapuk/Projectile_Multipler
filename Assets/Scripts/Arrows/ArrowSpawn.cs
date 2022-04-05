@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Gates;
 using UnityEngine;
 using UnityEditor;
 
@@ -8,6 +9,7 @@ namespace Arrow
 {
     public class ArrowSpawn : MonoBehaviour
     {
+        [SerializeField] private PlayerUI _playerUI;
         [SerializeField] private Transform _arrow;
         [SerializeField] private int _maxArrowCount = 199;
         [SerializeField] private int _minArrowCount = 33;
@@ -20,17 +22,23 @@ namespace Arrow
 
         private List<Transform> _allArrows = new List<Transform>();
         private float _firstRadius;
-        
-        public delegate void OnArrowsChanged(int arrowCount);
 
+        public delegate void OnArrowsChanged(int arrowCount);
         public static event OnArrowsChanged ArrowsChanged;
-        
+
         private void Awake()
         {
             _arrowCount = _minArrowCount;
             _firstRadius = _radius;
+
+            _playerUI.SetArrowSpawn(GetComponent<ArrowSpawn>());
         }
-        
+
+        private void Start()
+        {
+            AddArrows(1);
+        }
+
         public void AddArrows(int newArrowsCount)
         {
             int nextArrowCount = _arrowCount + newArrowsCount;
@@ -41,7 +49,7 @@ namespace Arrow
                 {
                     _arrowCount = nextArrowCount;
 
-                    ArrowsChanged(_arrowCount);
+                    UpdateArrowsChanged();
                     return;
                 }
 
@@ -68,7 +76,7 @@ namespace Arrow
                 _arrowCount++;
             }
 
-            ArrowsChanged(_arrowCount);
+            UpdateArrowsChanged();
         }
 
         public void RemoveArrow(int removeArrowsCount)
@@ -91,13 +99,13 @@ namespace Arrow
                     if (_nextArrowCount >= _maxArrowCount)
                     {
                         _arrowCount = _nextArrowCount; 
-                        ArrowsChanged(_arrowCount);
+                        UpdateArrowsChanged();
                         return;
                     }
                     else
                     {
                         _arrowCount--;
-                        ArrowsChanged(_arrowCount);
+                        UpdateArrowsChanged();
                         continue;
                     }
                 }
@@ -112,8 +120,8 @@ namespace Arrow
                 }
                 _arrowCount--;
             }
-            
-            ArrowsChanged(_arrowCount);
+
+            UpdateArrowsChanged();
         }
 
         public int GetMaxCountArrows()
@@ -124,6 +132,17 @@ namespace Arrow
         public int GetMinCountArrows()
         {
             return _minArrowCount;
+        }
+
+        public int GetCountArrows()
+        {
+            return _arrowCount - _minArrowCount;
+        }
+
+        private void UpdateArrowsChanged()
+        {
+            ArrowsChanged(_arrowCount);
+            _playerUI.UpdateCounter();
         }
     }
 }
