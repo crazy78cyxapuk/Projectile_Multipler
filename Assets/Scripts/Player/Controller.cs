@@ -13,7 +13,7 @@ namespace Player
 
         private Vector2 _startPos;
         private Vector2 _direction;
-        private float _minDistanceTouch = 2f;
+        private float _minDistanceTouch = 3f;
         private float _deceleration = 350f;
 
         private void Update()

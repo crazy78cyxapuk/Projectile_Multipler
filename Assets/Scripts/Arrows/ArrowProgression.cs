@@ -33,7 +33,7 @@ namespace Arrow
         {
             if (other.gameObject.TryGetComponent(out Gate gate))
             {
-                TakeDamage(gate.GetType(), gate.GetCountBonus());
+                GetDamage(gate.GetType(), gate.GetCountBonus());
                 gate.HideGate();
             }
         }
@@ -62,7 +62,7 @@ namespace Arrow
             }
         }
         
-        public void TakeDamage(TypeGate typeGate, int count)
+        private void GetDamage(TypeGate typeGate, int count)
         {
             switch (typeGate)
             {
