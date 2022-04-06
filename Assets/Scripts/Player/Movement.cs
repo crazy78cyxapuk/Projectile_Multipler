@@ -21,11 +21,15 @@ namespace Player
         [SerializeField] private float _minDistanceY, _maxDistanceY;
 
         private Movement _movement;
+
+        private Rigidbody _rb;
         
         private UnityAction _startGame, _stopGame;
 
         private void Awake()
         {
+            _rb = GetComponent<Rigidbody>();
+            
             _movement = GetComponent<Movement>();
             _movement.enabled = false;
 
@@ -37,10 +41,10 @@ namespace Player
             _statusGame.AddActionWin(_stopGame);
         }
 
-        private void Update()
-        {
-            MoveForward();
-        }
+        // private void FixedUpdate()
+        // {
+        //     MoveForward();
+        // }
 
         public void StartMove()
         {
@@ -54,7 +58,8 @@ namespace Player
 
         private void MoveForward()
         {
-            transform.position += _direction * _speed * Time.deltaTime;
+            //transform.position += _direction * _speed * Time.deltaTime;
+            _rb.velocity = _direction * _speed * Time.fixedDeltaTime;
         }
 
         public void MoveToSide(TargetSide target)
@@ -96,7 +101,7 @@ namespace Player
 
                 if (offsetRight < _maxDistanceToSide)
                 {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, offsetRight);
+                    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, offsetRight);
                 }
             }
             else
@@ -106,7 +111,7 @@ namespace Player
 
                 if (offsetLeft > -_maxDistanceToSide)
                 {
-                    transform.position = new Vector3(transform.position.x, transform.position.y, offsetLeft);
+                    transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, offsetLeft);
                 }
             }
 
