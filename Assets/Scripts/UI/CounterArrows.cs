@@ -26,7 +26,7 @@ public class CounterArrows : MonoBehaviour
         _arrowSpawn = _playerUI.GetArrowSpawn();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdatePosition();
     }
