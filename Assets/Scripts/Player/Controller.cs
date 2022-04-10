@@ -61,8 +61,15 @@ namespace Player
                     
                     case TouchPhase.Stationary:
                         _startPos = Input.mousePosition;
-                        //_movement.StopMove();
+                        //_movement.StopMoveToSide();
                         break;
+                    
+                    // case TouchPhase.Ended:
+                    //     case TouchPhase.Canceled:
+                    //         
+                    //     _movement.StopMoveToSide();
+                    //     
+                    //     break;
                 }
             }
         }
@@ -85,7 +92,7 @@ namespace Player
                 //     _movement.MoveToSide(TargetSide.Left);
                 // }
                 
-                _movement.MoveToSide(_direction);
+                _movement.MoveToSide(_direction, true);
             }
             
             _startPos = mousePos;

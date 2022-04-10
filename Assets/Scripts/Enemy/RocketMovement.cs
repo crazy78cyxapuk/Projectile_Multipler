@@ -18,7 +18,7 @@ namespace Rocket
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
-            _rocketMovement = GetComponent<RocketMovement>(); //tr.forward = velocity ---> rotate 
+            _rocketMovement = GetComponent<RocketMovement>();
             _rocketMovement.enabled = false;
         }
 

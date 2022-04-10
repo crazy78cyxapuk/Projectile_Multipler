@@ -26,6 +26,8 @@ namespace Player
         
         private UnityAction _startGame, _stopGame;
 
+        private Vector3 _firstPosition;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -39,6 +41,8 @@ namespace Player
             _statusGame.AddActionStart(_startGame);
             _statusGame.AddActionLose(_stopGame);
             _statusGame.AddActionWin(_stopGame);
+
+            _firstPosition = transform.localPosition;
         }
 
         // private void FixedUpdate()
@@ -136,5 +140,30 @@ namespace Player
                 }
             }
         }
+
+        public void MoveToSide(Vector2 direction, bool isTurn)
+        {
+            Vector3 editDirection = new Vector3(0, direction.y, direction.x);
+            Vector3 offset = editDirection;
+            offset *= _speedToSide * Time.deltaTime;
+            offset += transform.localPosition;
+
+            float distance = Vector3.Distance(offset, _firstPosition);
+
+            if (distance < _maxDistanceToSide)
+            {
+                transform.localPosition = offset;
+                //_rb.velocity = editDirection * _speedToSide;
+            }
+            // else
+            // {
+            //     StopMoveToSide();
+            // }
+        }
+
+        // public void StopMoveToSide()
+        // {
+        //     _rb.velocity = Vector3.zero;
+        // }
     }
 }

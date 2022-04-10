@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Extension;
 using Gates;
 using UnityEngine;
 using UnityEditor;
@@ -9,6 +10,7 @@ namespace Arrow
 {
     public class ArrowSpawn : MonoBehaviour
     {
+        [SerializeField] private CameraData _cameraData;
         [SerializeField] private PlayerUI _playerUI;
         [SerializeField] private Transform _arrow;
         [SerializeField] private int _maxArrowCount = 199;
@@ -143,6 +145,11 @@ namespace Arrow
         {
             ArrowsChanged(_arrowCount);
             _playerUI.UpdateCounter();
+
+            if (_cameraData.cameraZoom != null)
+            {
+                _cameraData.cameraZoom.Zoom(GetCountArrows());
+            }
         }
     }
 }

@@ -57,7 +57,8 @@ namespace Arrow
                 BoxCollider collider = gameObject.GetComponent<BoxCollider>();
                 if (scaleSize > _scaleLimit)
                 {
-                    collider.size = new Vector3(scaleSize, collider.size.y, collider.size.z);
+                    //collider.size = new Vector3(scaleSize, collider.size.y, collider.size.z);
+                    collider.size = new Vector3(scaleSize, scaleSize, collider.size.z);
                 }
             }
         }
