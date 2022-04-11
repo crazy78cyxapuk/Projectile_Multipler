@@ -14,7 +14,7 @@ namespace Extension
         [SerializeField] private Vector3 _valueZoom;
         [SerializeField] private int _speedCount;
 
-        [SerializeField] private CinemachineTransposer _cinemachineTransposer;
+        private CinemachineTransposer _cinemachineTransposer;
         private Vector3 _firstZoom;
 
         private int _count, _currentCount;
@@ -23,13 +23,15 @@ namespace Extension
 
         private CameraZoom _cameraZoom;
 
+        private bool _isActivate = false;
+
         private void Awake()
         {
             _cameraZoom = GetComponent<CameraZoom>();
             _cameraData.cameraZoom = _cameraZoom;
 
             _cinemachineTransposer = _cinemachineCameraOffset.GetCinemachineComponent<CinemachineTransposer>();
-            _firstZoom = _cinemachineTransposer.m_FollowOffset;
+            
             _count = 0;
 
             _cameraZoom.enabled = false;
@@ -37,7 +39,10 @@ namespace Extension
 
         private void Update()
         {
-            UpdateCount();
+            if (_isActivate)
+            {
+                UpdateCount();
+            }
         }
 
         public void Zoom(int count)
@@ -85,6 +90,12 @@ namespace Extension
         {
             _currentCount = _count;
             _cameraZoom.enabled = false;
+        }
+
+        public void SetZoom()
+        {
+            _firstZoom = _cinemachineTransposer.m_FollowOffset;
+            _isActivate = true;
         }
     }
 }

@@ -10,7 +10,8 @@ namespace ScreenPanel
 
         public void StartGame()
         {
-            _statusGame.ExecuteStart();
+            //_statusGame.ExecuteStart();
+            _statusGame.ExecuteCutscene();
         }
     }
 }

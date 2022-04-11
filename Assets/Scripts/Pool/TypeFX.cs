@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using UnityEditor;
 using UnityEngine;
 
 namespace Extension
@@ -13,12 +14,12 @@ namespace Extension
         
         [SerializeField] private GameObject _targetObj;
 
-        [SerializeField] private bool _isCoroutineDeactivate = false;
-        [SerializeField] private float _timer;
+        [SerializeField] public bool isCoroutineDeactivate = false;
+        [SerializeField] public float timer;
         
         private void OnEnable()
         {
-            if (_isCoroutineDeactivate)
+            if (isCoroutineDeactivate)
             {
                 StartCoroutine(WaitDeactivate());
             }
@@ -43,9 +44,24 @@ namespace Extension
 
         IEnumerator WaitDeactivate()
         {
-            yield return new WaitForSeconds(_timer);
+            yield return new WaitForSeconds(timer);
             
             Hide();
         }
     }
+    
+    // [CustomEditor(typeof(TypeFX))]
+    // public class MyScriptEditor : Editor
+    // {
+    //     public override void OnInspectorGUI()
+    //     {
+    //         var myScript = target as TypeFX;
+    //
+    //         myScript.isCoroutineDeactivate = GUILayout.Toggle(myScript.isCoroutineDeactivate, "Is Coroutine Deactivate");
+    //
+    //         if (myScript.isCoroutineDeactivate)
+    //             myScript.timer = EditorGUILayout.FloatField("Timer field: ", myScript.timer);
+    //
+    //     }
+    // }
 }

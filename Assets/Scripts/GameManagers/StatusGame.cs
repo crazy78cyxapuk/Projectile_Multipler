@@ -10,6 +10,14 @@ public class StatusGame : ScriptableObject
     private List<UnityAction> _actionsForWin = new List<UnityAction>();
     private List<UnityAction> _actionsForLose = new List<UnityAction>();
 
+    public void ResetAllData()
+    {
+        _actionsForCutscene.Clear();
+        _actionsForStart.Clear();
+        _actionsForWin.Clear();
+        _actionsForLose.Clear();
+    }
+    
     public void AddActionCutscene(UnityAction action)
     {
         _actionsForCutscene.Add(action);
