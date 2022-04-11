@@ -14,12 +14,16 @@ namespace Arrow
 
         private float x_Start = 0, y_Start = 0;
 
+        private float _minX_Space = 0.1f, _maxX_Space = 5f;
+        
         private ArrowGrid _arrowGrid;
 
         private void Awake()
         {
             _arrowGrid = GetComponent<ArrowGrid>();
             _arrowGrid.enabled = false;
+
+            x_Space = _minX_Space;
         }
 
         private void LateUpdate()
@@ -57,7 +61,21 @@ namespace Arrow
 
         public void EditSpace(float target)
         {
-            x_Space += target;
+            float spaceTarget = x_Space + target;
+
+            if (spaceTarget < _minX_Space)
+            {
+                x_Space = _minX_Space;
+                return;
+            }
+
+            if (spaceTarget > _maxX_Space)
+            {
+                x_Space = _maxX_Space;
+                return;
+            }
+
+            x_Space = spaceTarget;
         }
     }
 }

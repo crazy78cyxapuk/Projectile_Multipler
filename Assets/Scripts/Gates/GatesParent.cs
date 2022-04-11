@@ -34,7 +34,7 @@ namespace Gates
             _falseCanvas.localPosition -= new Vector3(0, .001f, 0);
             
             _trueCanvas.localEulerAngles = -_trueCanvas.localEulerAngles;
-            _trueCanvas.localPosition -= new Vector3(0, .001f, 0);
+            _trueCanvas.localPosition -= new Vector3(0, .0015f, 0);
         }
     }
 }

@@ -123,7 +123,7 @@ namespace Player
                 }
                 else
                 {
-                    _arrowGrid.EditSpace(_direction.y / 25);
+                    _arrowGrid.EditSpace(_direction.y / 50);
                 }
             }
             

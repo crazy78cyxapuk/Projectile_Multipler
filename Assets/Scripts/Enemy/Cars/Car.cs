@@ -22,13 +22,15 @@ namespace Enemy
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Arrow") && _isDie == false)
+            if (other.gameObject.CompareTag("Arrow"))
             {
-                _isDie = true;
-                
-                other.gameObject.SetActive(false);
+                if (_isDie == false)
+                {
+                    _isDie = true;
+                    Explosion();
+                }
 
-                Explosion();
+                other.gameObject.SetActive(false);
             }
         }
 
