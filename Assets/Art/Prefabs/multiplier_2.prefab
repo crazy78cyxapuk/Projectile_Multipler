@@ -780,4 +780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trueGate: {fileID: 8589499827077372246}
   _falseGate: {fileID: 402011100594294091}
-  _isRandomPosition: 0
+  _trueCanvas: {fileID: 1715917988454395407}
+  _falseCanvas: {fileID: 2826236253981114739}
+  _isRandomPosition: 1

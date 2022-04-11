@@ -514,7 +514,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _trueGate: {fileID: 2201922379193330146}
   _falseGate: {fileID: 2512549409395724827}
-  _isRandomPosition: 0
+  _trueCanvas: {fileID: 8128892850194283799}
+  _falseCanvas: {fileID: 3217693147017245125}
+  _isRandomPosition: 1
 --- !u!1001 &276599984108038981
 PrefabInstance:
   m_ObjectHideFlags: 0

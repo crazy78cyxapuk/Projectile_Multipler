@@ -5,11 +5,13 @@ using Extension;
 using Gates;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Events;
 
 namespace Arrow
 {
     public class ArrowSpawn : MonoBehaviour
     {
+        [SerializeField] private StatusGame _statusGame;
         [SerializeField] private CameraData _cameraData;
         [SerializeField] private PlayerUI _playerUI;
         [SerializeField] private Transform _arrow;
@@ -20,6 +22,12 @@ namespace Arrow
         [SerializeField] private float _radius = 0.01f;
         [SerializeField] private float _r = 12f;
         [SerializeField] private float _increaseRadius;
+
+        [SerializeField] private TurnController _turnController;
+        [SerializeField] private ArrowGrid _arrowGrid;
+        
+        private UnityAction _sendArrows;
+        
         private int _nextArrowCount;
 
         private List<Transform> _allArrows = new List<Transform>();
@@ -34,6 +42,9 @@ namespace Arrow
             _firstRadius = _radius;
 
             _playerUI.SetArrowSpawn(GetComponent<ArrowSpawn>());
+
+            _sendArrows += SendArrows;
+            _turnController.AddAction(_sendArrows);
         }
 
         private void Start()
@@ -89,7 +100,7 @@ namespace Arrow
 
             if (_nextArrowCount <= _minArrowCount - 1)
             {
-                Debug.LogError("GAME OVER!!!");
+                _statusGame.ExecuteLose();
                 _nextArrowCount = _minArrowCount;
                 _radius = _firstRadius;
             }
@@ -150,6 +161,11 @@ namespace Arrow
             {
                 _cameraData.cameraZoom.Zoom(GetCountArrows());
             }
+        }
+
+        private void SendArrows()
+        {
+            _arrowGrid.SetArrows(_allArrows);
         }
     }
 }

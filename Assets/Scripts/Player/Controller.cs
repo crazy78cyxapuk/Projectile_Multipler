@@ -3,18 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using Arrow;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Player
 {
     public class Controller : MonoBehaviour
     {
+        [SerializeField] private TurnController _turnController;
+        [SerializeField] private StatusGame _statusGame;
         [SerializeField] private Movement _movement;
         [SerializeField] private ArrowSpawn _arrowSpawn;
+
+        [SerializeField] private ArrowGrid _arrowGrid;
 
         private Vector2 _startPos;
         private Vector2 _direction;
         private float _minDistanceTouch = 2f;
         private float _deceleration = 350f;
+
+        private UnityAction _swapController, _enableController, _stopGame;
+
+        private Controller _controller;
+
+        private bool _isMoveToSide = true;
+
+        private void Awake()
+        {
+            _swapController += SwapController;
+            _turnController.AddAction(_swapController);
+
+            _enableController += StartController;
+            _statusGame.AddActionStart(_enableController);
+
+            _stopGame += StopController;
+            _statusGame.AddActionWin(_stopGame);
+            _statusGame.AddActionLose(_stopGame);
+            
+            _controller = GetComponent<Controller>();
+            _controller.enabled = false;
+        }
 
         private void Update()
         {
@@ -37,8 +64,6 @@ namespace Player
             
             if (Input.GetMouseButton(1))
             {
-                //StartAllMovements();
-                //_arrowSpawn.RemoveArrow(1);
                 _arrowSpawn.AddArrows(1);
             }
         }
@@ -91,8 +116,15 @@ namespace Player
                 // {
                 //     _movement.MoveToSide(TargetSide.Left);
                 // }
-                
-                _movement.MoveToSide(_direction, true);
+
+                if (_isMoveToSide)
+                {
+                    _movement.MoveToSide(_direction, true);
+                }
+                else
+                {
+                    _arrowGrid.EditSpace(_direction.y / 25);
+                }
             }
             
             _startPos = mousePos;
@@ -127,6 +159,21 @@ namespace Player
             }
 
             return direction;
+        }
+
+        private void SwapController()
+        {
+            _isMoveToSide = false;
+        }
+
+        private void StartController()
+        {
+            _controller.enabled = true;
+        }
+
+        private void StopController()
+        {
+            _controller.enabled = false;
         }
     }
 }

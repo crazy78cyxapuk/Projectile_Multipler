@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using Arrow;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CounterArrows : MonoBehaviour
 {
+    [SerializeField] private TurnController _turnController;
     [SerializeField] private PlayerUI _playerUI;
     [SerializeField] private Vector2 _offset;
     [SerializeField] private TMP_Text _textCount;
@@ -15,9 +17,14 @@ public class CounterArrows : MonoBehaviour
 
     private Camera _cam;
 
+    private UnityAction _disableCounter;
+    
     private void Awake()
     {
         _playerUI.counterArrows = GetComponent<CounterArrows>();
+
+        _disableCounter += DisableCounter;
+        _turnController.AddAction(_disableCounter);
     }
 
     private void OnEnable()
@@ -40,5 +47,10 @@ public class CounterArrows : MonoBehaviour
     public void UpdateTextCount(int count)
     {
         _textCount.SetText(count.ToString());
+    }
+
+    private void DisableCounter()
+    {
+        gameObject.SetActive(false);
     }
 }

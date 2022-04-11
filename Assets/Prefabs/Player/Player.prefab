@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6239445319252690591}
-  - component: {fileID: 6239445319252690588}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -32,20 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
---- !u!114 &6239445319252690588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6239445319252690590}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fc61495bd1feef4d8cf85d918490016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movement: {fileID: 6239445319557284869}
-  _arrowSpawn: {fileID: 6239445319557284870}
 --- !u!1 &6239445319557284875
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +46,7 @@ GameObject:
   - component: {fileID: 6239445319557284869}
   - component: {fileID: 6239445319557284872}
   - component: {fileID: 6239445319557284866}
+  - component: {fileID: 1471153000848824229}
   m_Layer: 0
   m_Name: ParentArrows
   m_TagString: Untagged
@@ -95,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d019f4c6e75471a4ca2e0f46ea72fdce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _cameraData: {fileID: 11400000, guid: ceb9957b28c55134dbf4cf16cf3739fa, type: 2}
   _playerUI: {fileID: 11400000, guid: 80c924e4f0a188a4c8bbcd007d126a90, type: 2}
   _arrow: {fileID: 4457462510520994760, guid: 4cfdb545075fe6b428aad78d6d3aecb1, type: 3}
@@ -104,6 +91,8 @@ MonoBehaviour:
   _radius: 0.01
   _r: 12
   _increaseRadius: 0.5
+  _turnController: {fileID: 11400000, guid: 5f4c0471e51be1f4dbb437f87b71134f, type: 2}
+  _arrowGrid: {fileID: 1471153000848824229}
 --- !u!114 &6239445319557284868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +168,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fc61495bd1feef4d8cf85d918490016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _turnController: {fileID: 11400000, guid: 5f4c0471e51be1f4dbb437f87b71134f, type: 2}
+  _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _movement: {fileID: 6239445319557284869}
   _arrowSpawn: {fileID: 6239445319557284870}
+  _arrowGrid: {fileID: 1471153000848824229}
+--- !u!114 &1471153000848824229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239445319557284875}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac71fb8fec2d0d45a0061d305495674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x_Space: 0.5
+  y_Space: 3
+  _columnLength: 9
+  _rowLength: 0
+  _allArrows: []
 --- !u!1001 &7731239087550062094
 PrefabInstance:
   m_ObjectHideFlags: 0

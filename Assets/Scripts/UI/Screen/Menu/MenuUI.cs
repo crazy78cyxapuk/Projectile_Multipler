@@ -12,6 +12,8 @@ namespace ScreenPanel
         {
             //_statusGame.ExecuteStart();
             _statusGame.ExecuteCutscene();
+
+            gameObject.SetActive(false);
         }
     }
 }

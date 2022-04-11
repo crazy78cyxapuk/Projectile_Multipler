@@ -149,6 +149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4925147717998461437, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+      propertyPath: m_TagString
+      value: Arrow
+      objectReference: {fileID: 0}
     - target: {fileID: 6683695631967724739, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
       propertyPath: playOnAwake
       value: 1
@@ -243,8 +247,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+--- !u!1 &5926826739072122797 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4925147717998461437, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+  m_PrefabInstance: {fileID: 1592570322462309968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5930038129493840949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4923076540443486821, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
   m_PrefabInstance: {fileID: 1592570322462309968}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &952495105719179367
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926826739072122797}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8865044, y: 13.789654, z: 2.8865044}
+  m_Center: {x: -0.00000036614514, y: 1.0714451, z: -0.00000030654013}
