@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _poolObject: {fileID: 11400000, guid: d41559665ce248c4e8d31922dca06eee, type: 2}
+  _cameraData: {fileID: 11400000, guid: ceb9957b28c55134dbf4cf16cf3739fa, type: 2}
 --- !u!1 &8960736351969185493
 GameObject:
   m_ObjectHideFlags: 0
