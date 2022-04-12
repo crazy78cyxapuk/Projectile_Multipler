@@ -8,6 +8,7 @@ namespace Arrow
 {
     public class ArrowProgression : MonoBehaviour
     {
+        [SerializeField] private StatusGame _statusGame;
         [SerializeField] private ArrowSpawn _arrowSpawn;
 
         private int _maxArrows, _minArrows;
@@ -65,6 +66,11 @@ namespace Arrow
         
         public void TakeDamage(TypeGate typeGate, int count)
         {
+            if (_statusGame.IsStopGame())
+            {
+                return;
+            }
+            
             switch (typeGate)
             {
                 case TypeGate.Addition:

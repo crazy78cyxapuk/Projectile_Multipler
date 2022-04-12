@@ -60,7 +60,7 @@ MonoBehaviour:
   _rocketExplosion: {fileID: 1945960380394066207}
   _rocketMovement: {fileID: 5499529461951520867}
   _smoothTurn: {fileID: 5499529461951520878}
-  _smallRadius: 3
+  _smallRadius: 5
 --- !u!1 &5499529461951520869
 GameObject:
   m_ObjectHideFlags: 0

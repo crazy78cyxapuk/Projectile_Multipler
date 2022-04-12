@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e6123d27a650c44a6fd0c7e247d4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _arrowSpawn: {fileID: 6239445319557284870}
   _scaleMultiplier: 5
   _scaleLimit: 0.2
@@ -135,9 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _speed: 400
-  _speedToSide: 1
+  _speedToSide: 1.5
   _direction: {x: -1, y: 0, z: 0}
-  _maxDistanceToSide: 4.5
+  _maxDistanceToSide: 7
   _minDistanceY: -0.5
   _maxDistanceY: 2.5
 --- !u!54 &6239445319557284872

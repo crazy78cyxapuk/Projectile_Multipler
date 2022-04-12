@@ -10,12 +10,16 @@ public class StatusGame : ScriptableObject
     private List<UnityAction> _actionsForWin = new List<UnityAction>();
     private List<UnityAction> _actionsForLose = new List<UnityAction>();
 
+    private bool _isStopGame;
+    
     public void ResetAllData()
     {
         _actionsForCutscene.Clear();
         _actionsForStart.Clear();
         _actionsForWin.Clear();
         _actionsForLose.Clear();
+
+        _isStopGame = false;
     }
     
     public void AddActionCutscene(UnityAction action)
@@ -71,6 +75,8 @@ public class StatusGame : ScriptableObject
         }
       
         _actionsForWin.Clear();
+
+        _isStopGame = true;
     }
 
     public void ExecuteLose()
@@ -81,5 +87,12 @@ public class StatusGame : ScriptableObject
         }
 
         _actionsForLose.Clear();
+        
+        _isStopGame = true;
+    }
+
+    public bool IsStopGame()
+    {
+        return _isStopGame;
     }
 }
