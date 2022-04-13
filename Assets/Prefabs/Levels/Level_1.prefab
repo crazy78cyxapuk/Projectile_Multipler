@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4015088507174331377
 Transform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
     - name: Trigger 1
       type: 0
       workOnce: 1
-      position: 0.3007527622911665
+      position: 0.2707821384624199
       enabled: 1
       color: {r: 1, g: 0.0000001013279, b: 0, a: 1}
       onCross:
@@ -1734,7 +1734,7 @@ MonoBehaviour:
   buildOnEnable: 1
   _isUpdated: 1
   applyDirectionRotation: 0
-  useTriggers: 0
+  useTriggers: 1
   triggerGroup: 0
   _direction: 1
   _dontLerpDirection: 0
@@ -1811,6 +1811,7 @@ MonoBehaviour:
   _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _splineFollower: {fileID: 4521814393782460967}
   _cameraData: {fileID: 11400000, guid: ceb9957b28c55134dbf4cf16cf3739fa, type: 2}
+  _playerUI: {fileID: 11400000, guid: 80c924e4f0a188a4c8bbcd007d126a90, type: 2}
 --- !u!1 &4521814394073225510
 GameObject:
   m_ObjectHideFlags: 0

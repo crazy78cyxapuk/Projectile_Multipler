@@ -75,6 +75,8 @@ public class StatusGame : ScriptableObject
         }
       
         _actionsForWin.Clear();
+        
+        LevelData.IncreaseNumberLevel();
 
         _isStopGame = true;
     }

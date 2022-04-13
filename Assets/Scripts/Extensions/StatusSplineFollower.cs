@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Dreamteck.Splines;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 
 namespace Extension
 {
@@ -12,11 +13,17 @@ namespace Extension
         [SerializeField] private StatusGame _statusGame;
         [SerializeField] private SplineFollower _splineFollower;
         [SerializeField] private CameraData _cameraData;
+        [SerializeField] private PlayerUI _playerUI;
         
         private UnityAction _startGame, _stopGame;
 
+        private StatusSplineFollower _statusSplineFollower;
+        
         private void Awake()
         {
+            _statusSplineFollower = GetComponent<StatusSplineFollower>();
+            _statusSplineFollower.enabled = false;
+            
             _startGame += StartFollow;
             _stopGame += StopFollow;
             
@@ -25,20 +32,34 @@ namespace Extension
             _statusGame.AddActionWin(_stopGame);
         }
 
+        private void Update()
+        {
+            UpdatePercentUI();
+        }
+
         private void StartFollow()
         {
             _splineFollower.follow = true;
+            _statusSplineFollower.enabled = true;
         }
 
         private void StopFollow()
         {
             _splineFollower.follow = false;
+            _statusSplineFollower.enabled = false;
         }
 
         public void SetParent()
         {
-            Debug.LogError(111);
             _cameraData.SetParent(transform);
+        }
+
+        private void UpdatePercentUI()
+        {
+            if (_playerUI.fillLevel != null)
+            {
+                _playerUI.fillLevel.Fill(_splineFollower.GetPercent());
+            }
         }
     }
 }
