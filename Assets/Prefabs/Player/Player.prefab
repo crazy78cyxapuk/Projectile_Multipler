@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 6239445319557284872}
   - component: {fileID: 6239445319557284866}
   - component: {fileID: 1471153000848824229}
+  - component: {fileID: 3068068681162237574}
   m_Layer: 0
   m_Name: ParentArrows
   m_TagString: Untagged
@@ -93,6 +94,7 @@ MonoBehaviour:
   _increaseRadius: 0.5
   _turnController: {fileID: 11400000, guid: 5f4c0471e51be1f4dbb437f87b71134f, type: 2}
   _arrowGrid: {fileID: 1471153000848824229}
+  _arrowExplosion: {fileID: 3068068681162237574}
 --- !u!114 &6239445319557284868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +193,20 @@ MonoBehaviour:
   _columnLength: 9
   _rowLength: 0
   _allArrows: []
+--- !u!114 &3068068681162237574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6239445319557284875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d84f79e762bdc34a86eb87398069757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolObject: {fileID: 11400000, guid: d41559665ce248c4e8d31922dca06eee, type: 2}
+  _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
 --- !u!1001 &7731239087550062094
 PrefabInstance:
   m_ObjectHideFlags: 0

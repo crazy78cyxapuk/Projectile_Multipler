@@ -25,6 +25,7 @@ namespace Arrow
 
         [SerializeField] private TurnController _turnController;
         [SerializeField] private ArrowGrid _arrowGrid;
+        [SerializeField] private ArrowExplosion _arrowExplosion;
         
         private UnityAction _sendArrows;
         
@@ -166,6 +167,7 @@ namespace Arrow
         private void SendArrows()
         {
             _arrowGrid.SetArrows(_allArrows);
+            _arrowExplosion.SetArrows(_allArrows);
         }
     }
 }
