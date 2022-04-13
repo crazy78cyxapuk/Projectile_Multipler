@@ -20,4 +20,19 @@ public class CameraData : ScriptableObject
     {
         _cameraShake.TurnShake();
     }
+
+    public void SetParent(Transform target)
+    {
+        _cameraShake.transform.parent = target;
+
+        if (_cameraShake.gameObject.TryGetComponent(out CinemachineVirtualCamera cinemachineVirtualCamera))
+        {
+            cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().enabled = false;
+        }
+
+        if (_cameraShake.gameObject.TryGetComponent(out LocalMoveToTarget localMoveToTarget))
+        {
+            localMoveToTarget.enabled = true;
+        }
+    }
 }

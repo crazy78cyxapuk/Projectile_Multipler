@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetScale: {x: 1, y: 1, z: 1}
-  _speed: 1.5
+  _speed: 3
 --- !u!1001 &1592570322462309968
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -34,12 +34,7 @@ namespace Rocket
             {
                 if (_isActivate == false)
                 {
-                    GetComponent<SphereCollider>().radius = _smallRadius;
-                    Transform target = arrowSpawn.transform;
-                    _rocketMovement.SetTarget(target);
-                    _smoothTurn.SetTarget(target);
-                    //StartCoroutine(WaitActivateAttack());
-                    _isActivate = true;
+                    ActivateAttack(arrowSpawn);
                 }
                 else
                 {
@@ -60,6 +55,16 @@ namespace Rocket
         {
             yield return new WaitForSeconds(0.5f);
 
+            _isActivate = true;
+        }
+
+        public void ActivateAttack(ArrowSpawn arrowSpawn)
+        {
+            GetComponent<SphereCollider>().radius = _smallRadius;
+            Transform target = arrowSpawn.transform;
+            _rocketMovement.SetTarget(target);
+            _smoothTurn.SetTarget(target);
+            //StartCoroutine(WaitActivateAttack());
             _isActivate = true;
         }
     }

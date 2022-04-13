@@ -11,7 +11,8 @@ namespace Extension
     {
         [SerializeField] private StatusGame _statusGame;
         [SerializeField] private SplineFollower _splineFollower;
-
+        [SerializeField] private CameraData _cameraData;
+        
         private UnityAction _startGame, _stopGame;
 
         private void Awake()
@@ -32,6 +33,12 @@ namespace Extension
         private void StopFollow()
         {
             _splineFollower.follow = false;
+        }
+
+        public void SetParent()
+        {
+            Debug.LogError(111);
+            _cameraData.SetParent(transform);
         }
     }
 }

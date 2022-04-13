@@ -43,6 +43,7 @@ namespace Extension
 
         private void StopFollow()
         {
+            transform.parent = null;
             _isActivate = true;
             _cameraFinish.enabled = true;
         }
