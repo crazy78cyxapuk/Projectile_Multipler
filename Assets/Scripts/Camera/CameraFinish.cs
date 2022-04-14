@@ -12,6 +12,8 @@ namespace Extension
     {
         [SerializeField] private TurnController _turnController;
         [SerializeField] private float _speed;
+
+        [SerializeField] private Transform _targetForward;
         
         private UnityAction _disableFollow;
         
@@ -38,6 +40,7 @@ namespace Extension
             if (_isActivate)
             {
                 MoveUP();
+                MoveForward();
             }
         }
 
@@ -57,6 +60,18 @@ namespace Extension
             if (_speed <= 0)
             {
                 _cameraFinish.enabled = false;
+            }
+        }
+
+        private void MoveForward()
+        {
+            Vector3 myPos = new Vector3(transform.position.x, 0, 0);
+            Vector3 target = new Vector3(_targetForward.position.x, 0, 0);
+            float dist = Vector3.Distance(myPos, target);
+
+            if (dist > 3f)
+            {
+                transform.position -= new Vector3(5, 0, 0) * Time.deltaTime;
             }
         }
     }

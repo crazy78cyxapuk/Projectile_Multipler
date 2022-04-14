@@ -41,7 +41,7 @@ namespace Arrow
                     _poolObject.AddExplosionFX(_allArrows[i].position);
                     _allArrows[i].gameObject.SetActive(false);
 
-                    yield return new WaitForSeconds(0.05f);
+                    yield return new WaitForSeconds(0.01f);
                 }
             }
         }

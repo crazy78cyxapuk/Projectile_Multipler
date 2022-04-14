@@ -14,7 +14,7 @@ namespace Arrow
 
         private float x_Start = 0, y_Start = 0;
 
-        private float _minX_Space = 0.1f, _maxX_Space = 5f;
+        private float _minX_Space = 0.1f, _maxX_Space = 3.5f;
         
         private ArrowGrid _arrowGrid;
 
@@ -59,23 +59,43 @@ namespace Arrow
             }
         }
 
-        public void EditSpace(float target)
+        public void EditSpace(Vector2 target)
         {
-            float spaceTarget = x_Space + target;
+            float spaceTargetX = x_Space + target.x;
 
-            if (spaceTarget < _minX_Space)
+            if (spaceTargetX < _minX_Space)
             {
                 x_Space = _minX_Space;
-                return;
             }
-
-            if (spaceTarget > _maxX_Space)
+            else
             {
-                x_Space = _maxX_Space;
-                return;
+                if (spaceTargetX > _maxX_Space)
+                {
+                    x_Space = _maxX_Space;
+                }
+                else
+                {
+                    x_Space = spaceTargetX;
+                }
             }
-
-            x_Space = spaceTarget;
+            
+            float spaceTargetY = y_Space + target.y;
+            
+            if (spaceTargetY < _minX_Space)
+            {
+                y_Space = _minX_Space;
+            }
+            else
+            {
+                if (spaceTargetY > _maxX_Space)
+                {
+                    y_Space = _maxX_Space;
+                }
+                else
+                {
+                    y_Space = spaceTargetY;
+                }
+            }
         }
     }
 }
