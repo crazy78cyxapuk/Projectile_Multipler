@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Arrow;
 using Extension;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class LevelSettings : MonoBehaviour
     [SerializeField] private PoolObject _poolObject;
     [SerializeField] private LevelsData _levelsData;
     [SerializeField] private EnemyData _enemyData;
+    [SerializeField] private ArrowData _arrowData;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class LevelSettings : MonoBehaviour
         _poolObject.Init();
         _turnController.Reset();
         _enemyData.Reset();
+        _arrowData.Reset();
     }
 
     private void CreateLevel()

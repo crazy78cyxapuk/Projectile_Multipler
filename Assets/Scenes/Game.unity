@@ -605,6 +605,7 @@ MonoBehaviour:
   _poolObject: {fileID: 11400000, guid: d41559665ce248c4e8d31922dca06eee, type: 2}
   _levelsData: {fileID: 11400000, guid: d0cabb3e91f92274cb723e69c630f518, type: 2}
   _enemyData: {fileID: 11400000, guid: c21ec1a2b3110314a9fc7c713304d57a, type: 2}
+  _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
 --- !u!1 &563012306
 GameObject:
   m_ObjectHideFlags: 0

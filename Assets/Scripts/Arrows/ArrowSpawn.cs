@@ -51,6 +51,7 @@ namespace Arrow
         private void Start()
         {
             AddArrows(1);
+            DisableFlyFirstArrow();
         }
 
         public void AddArrows(int newArrowsCount)
@@ -168,6 +169,16 @@ namespace Arrow
         {
             _arrowGrid.SetArrows(_allArrows);
             _arrowExplosion.SetArrows(_allArrows);
+        }
+
+        private void DisableFlyFirstArrow()
+        {
+            GameObject arrow = _allArrows[0].gameObject;
+
+            if (arrow.TryGetComponent(out ArrowFly arrowFly))
+            {
+                arrowFly.SetFirstArrow();
+            }
         }
     }
 }

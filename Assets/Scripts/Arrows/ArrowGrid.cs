@@ -7,6 +7,7 @@ namespace Arrow
 {
     public class ArrowGrid : MonoBehaviour
     {
+        [SerializeField] private ArrowData _arrowData;
         [SerializeField] private float x_Space, y_Space;
         [SerializeField] private int _columnLength, _rowLength;
 
@@ -36,6 +37,8 @@ namespace Arrow
             _allArrows = allArrows;
 
             _columnLength = _allArrows.Count / 3;
+            
+            _arrowData.DisableArrowFly();
 
             _arrowGrid.enabled = true;
         }
