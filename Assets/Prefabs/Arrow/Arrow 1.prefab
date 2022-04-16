@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 723dcb33d9252c9409f4717a1c40581f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraData: {fileID: 11400000, guid: ceb9957b28c55134dbf4cf16cf3739fa, type: 2}
   _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
   _minOffset: -1

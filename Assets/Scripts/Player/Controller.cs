@@ -124,7 +124,7 @@ namespace Player
                 else
                 {
                     //_arrowGrid.EditSpace(_direction / 100);
-                    _arrowGrid.EditSpace(_direction.x / 100);
+                    _arrowGrid.EditSpace(_direction.x / 50);
                 }
             }
             

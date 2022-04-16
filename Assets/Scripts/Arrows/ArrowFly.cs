@@ -8,6 +8,7 @@ namespace Arrow
 {
     public class ArrowFly : MonoBehaviour
     {
+        [SerializeField] private CameraData _cameraData;
         [SerializeField] private StatusGame _statusGame;
         [SerializeField] private ArrowData _arrowData;
         [SerializeField] private float _minOffset, _maxOffset;
@@ -90,7 +91,8 @@ namespace Arrow
         {
             _arrowFly.enabled = false;
             _startArrow += StartFirstArrow;
-            _statusGame.AddActionStart(_startArrow);
+            //_statusGame.AddActionStart(_startArrow);
+            _cameraData.SetActionArrowFly(_startArrow);
         }
         
         private void StartFirstArrow()

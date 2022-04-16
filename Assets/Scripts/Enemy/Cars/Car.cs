@@ -12,6 +12,7 @@ namespace Enemy
         [SerializeField] private PoolObject _poolObject;
         [SerializeField] private GameObject _hole;
         [SerializeField] private GameObject _model;
+        [SerializeField] private HealthBar _healthBar;
 
         private bool _isDie = false;
         
@@ -26,8 +27,15 @@ namespace Enemy
             {
                 if (_isDie == false)
                 {
-                    _isDie = true;
                     Explosion();
+
+                    float countDamage = 10;
+                    _healthBar.TakeDamage(countDamage);
+
+                    if (_healthBar.IsZeroHP())
+                    {
+                        Die();
+                    }
                 }
 
                 other.gameObject.SetActive(false);
@@ -37,6 +45,12 @@ namespace Enemy
         private void Explosion()
         {
             _poolObject.AddExplosionFX(transform.position);
+        }
+
+        private void Die()
+        {
+            _isDie = true;
+            
             _model.SetActive(false);
 
             if (_hole != null)
