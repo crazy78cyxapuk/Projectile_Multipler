@@ -14,8 +14,9 @@ namespace Extension
         [SerializeField] private SplineFollower _splineFollower;
         [SerializeField] private CameraData _cameraData;
         [SerializeField] private PlayerUI _playerUI;
+        [SerializeField] private TurnController _turnController;
         
-        private UnityAction _startGame, _stopGame;
+        private UnityAction _startGame, _stopGame, _increaseSpeed;
 
         private StatusSplineFollower _statusSplineFollower;
         
@@ -30,6 +31,9 @@ namespace Extension
             _statusGame.AddActionStart(_startGame);
             _statusGame.AddActionLose(_stopGame);
             _statusGame.AddActionWin(_stopGame);
+
+            _increaseSpeed += IncreaseSpeed;
+            _turnController.AddAction(_increaseSpeed);
         }
 
         private void Update()
@@ -60,6 +64,11 @@ namespace Extension
             {
                 _playerUI.fillLevel.Fill(_splineFollower.GetPercent());
             }
+        }
+
+        private void IncreaseSpeed()
+        {
+            _splineFollower.followSpeed += 3f;
         }
     }
 }
