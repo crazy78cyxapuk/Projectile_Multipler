@@ -56,6 +56,14 @@ namespace Extension
         public void AddExplosionFX(Vector3 target)
         {
             _allFx.Add(_managerPool.Spawn(PoolType.Fx, _explosionFX, target, Quaternion.identity));
+
+            if (SettingsData.IsEnableAudio() == false)
+            {
+                if (_allFx[_allFx.Count - 1].TryGetComponent(out AudioSource audioSource))
+                {
+                    audioSource.enabled = false;
+                }
+            }
         }
 
         public void AddShotFX(Vector3 targetPos)
