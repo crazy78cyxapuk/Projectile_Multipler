@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _allLevels:
   - level: {fileID: 4521814394267424127, guid: a33718baa8f8c7147baf522364524d69, type: 3}
+  _isTestMode: 0
+  _testLevel:
+    level: {fileID: 0}
