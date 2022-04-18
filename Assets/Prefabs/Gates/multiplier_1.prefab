@@ -682,6 +682,8 @@ MonoBehaviour:
   _gatesData: {fileID: 11400000, guid: 42d5f2a32b2d87741b4b5bb54a52509a, type: 2}
   _currentType: 0
   _otherGate: {fileID: 1087557641555564052}
+  _isRandomValue: 1
+  _value: 0
 --- !u!65 &3737658653150953229
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -710,6 +712,8 @@ MonoBehaviour:
   _gatesData: {fileID: 11400000, guid: 42d5f2a32b2d87741b4b5bb54a52509a, type: 2}
   _currentType: 1
   _otherGate: {fileID: 1087557641555564052}
+  _isRandomValue: 1
+  _value: 0
 --- !u!114 &4910559294180039984
 MonoBehaviour:
   m_ObjectHideFlags: 0

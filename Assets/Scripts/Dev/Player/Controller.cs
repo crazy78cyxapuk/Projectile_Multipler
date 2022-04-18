@@ -59,13 +59,19 @@ namespace Player
             // {
             //     CheckMousePosition();
             // }
-            
+
+#if UNITY_ANDROID
             CheckInputMobile();
+#endif
+
+#if  UNITY_EDITOR
+            CheckInputEditor();
+#endif
             
-            if (Input.GetMouseButton(1))
-            {
-                _arrowSpawn.AddArrows(1);
-            }
+            // if (Input.GetMouseButton(1))
+            // {
+            //     _arrowSpawn.AddArrows(1);
+            // }
         }
 
         private void CheckInputMobile()
@@ -99,6 +105,19 @@ namespace Player
             }
         }
 
+        private void CheckInputEditor()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _startPos = Input.mousePosition;
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                CheckMousePosition();
+            }
+        }
+        
         private void CheckMousePosition()
         {
             Vector2 mousePos = Input.mousePosition;
