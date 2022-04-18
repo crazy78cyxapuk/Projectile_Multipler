@@ -53,6 +53,11 @@ namespace Arrow
             
             _arrowData.DisableArrowFly();
 
+            for (int i = 0; i < allArrows.Count; i++)
+            {
+                _arrowData.AddArrowLast(allArrows[i].gameObject);
+            }
+
             _arrowGrid.enabled = true;
         }
 
