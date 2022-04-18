@@ -13,6 +13,9 @@ namespace Gates
 
         [SerializeField] private GameObject _otherGate;
 
+        [SerializeField] private bool _isRandomValue = false;
+        [SerializeField] private int _value;
+
         private int _numberBonus;
 
         private GateView _gateView;
@@ -26,7 +29,14 @@ namespace Gates
 
         private void InitGate()
         {
-            _numberBonus = _gatesData.GetValue(_currentType);
+            if (_isRandomValue)
+            {
+                _numberBonus = _gatesData.GetValue(_currentType);
+            }
+            else
+            {
+                _numberBonus = _value;
+            }
 
             _gateView.InitView(_currentType, _numberBonus);
         }
