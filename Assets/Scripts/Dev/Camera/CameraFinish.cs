@@ -10,6 +10,7 @@ namespace Extension
 {
     public class CameraFinish : MonoBehaviour
     {
+        [SerializeField] private EnemyData _enemyData;
         [SerializeField] private TurnController _turnController;
         [SerializeField] private float _speed;
 
@@ -33,6 +34,11 @@ namespace Extension
 
             _cameraFinish = GetComponent<CameraFinish>();
             _cameraFinish.enabled = false;
+        }
+
+        private void OnEnable()
+        {
+            _targetForward = _enemyData.enemy;
         }
 
         private void Update()

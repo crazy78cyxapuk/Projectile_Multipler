@@ -10,13 +10,14 @@ namespace Extension
 {
     public class StatusSplineFollower : MonoBehaviour
     {
+        [SerializeField] private SpeedPlayer _speedPlayer;
         [SerializeField] private StatusGame _statusGame;
         [SerializeField] private SplineFollower _splineFollower;
         [SerializeField] private CameraData _cameraData;
         [SerializeField] private PlayerUI _playerUI;
         [SerializeField] private TurnController _turnController;
         
-        private UnityAction _startGame, _stopGame, _increaseSpeed;
+        private UnityAction _startGame, _stopGame, _increaseSpeed, _speedInLine;
 
         private StatusSplineFollower _statusSplineFollower;
         
@@ -32,8 +33,13 @@ namespace Extension
             _statusGame.AddActionLose(_stopGame);
             _statusGame.AddActionWin(_stopGame);
 
-            _increaseSpeed += IncreaseSpeed;
+            _increaseSpeed += SetFinishSpeed;
             _turnController.AddAction(_increaseSpeed);
+
+            _speedInLine += SetSpeedInLine;
+            _cameraData.SetActionPlayerSpeed(_speedInLine);
+            
+            SetStartSpeed();
         }
 
         private void Update()
@@ -66,9 +72,19 @@ namespace Extension
             }
         }
 
-        private void IncreaseSpeed()
+        private void SetFinishSpeed()
         {
-            _splineFollower.followSpeed += 3f;
+            _splineFollower.followSpeed = _speedPlayer.speedFinish;
+        }
+
+        private void SetStartSpeed()
+        {
+            _splineFollower.followSpeed = _speedPlayer.speedStart;
+        }
+
+        private void SetSpeedInLine()
+        {
+            _splineFollower.followSpeed = _speedPlayer.speedInLine;
         }
     }
 }

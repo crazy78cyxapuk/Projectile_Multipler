@@ -8,6 +8,7 @@ namespace Enemy
 {
     public class Car : MonoBehaviour
     {
+        
         [SerializeField] private EnemyData _enemyData;
         [SerializeField] private PoolObject _poolObject;
         [SerializeField] private GameObject _hole;
@@ -18,7 +19,7 @@ namespace Enemy
         
         private void Awake()
         {
-            _enemyData.AddEnemy();
+            _enemyData.AddEnemy(transform);
         }
 
         private void OnTriggerEnter(Collider other)

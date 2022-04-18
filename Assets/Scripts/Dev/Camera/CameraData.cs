@@ -12,7 +12,7 @@ public class CameraData : ScriptableObject
     
     [HideInInspector] public CameraZoom cameraZoom;
 
-    private UnityAction _startArrowFly;
+    private UnityAction _startArrowFly, _speedPlayer;
 
     public void SetCameraShake(CameraShake cameraShake)
     {
@@ -23,6 +23,11 @@ public class CameraData : ScriptableObject
     {
         _startArrowFly = action;
     }
+
+    public void SetActionPlayerSpeed(UnityAction action)
+    {
+        _speedPlayer = action;
+    }
     
     public void TurnShake()
     {
@@ -32,6 +37,7 @@ public class CameraData : ScriptableObject
     public void SetParent(Transform target)
     {
         _startArrowFly?.Invoke();
+        _speedPlayer?.Invoke();
         
         _cameraShake.transform.parent = target;
 

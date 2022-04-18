@@ -8,6 +8,8 @@ public class EnemyData : ScriptableObject
     [SerializeField] private StatusGame _statusGame;
     [SerializeField] private int _countEnemies;
 
+    [HideInInspector] public Transform enemy;
+
     public void Reset()
     {
         _countEnemies = 0;
@@ -23,9 +25,10 @@ public class EnemyData : ScriptableObject
         }
     }
 
-    public void AddEnemy()
+    public void AddEnemy(Transform enemy)
     {
         _countEnemies += 1;
+        this.enemy = enemy;
     }
 
     public bool IsEnemyLife()
