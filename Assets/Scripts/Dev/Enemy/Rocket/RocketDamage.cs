@@ -10,7 +10,12 @@ namespace Rocket
     public class RocketDamage : MonoBehaviour
     {
         [SerializeField] private RocketExplosion _rocketExplosion;
-        [SerializeField] private int _damage;
+        private int _minDamage = 5, _maxDamage = 30, _damage;
+
+        private void Awake()
+        {
+            _damage = UnityEngine.Random.Range(_minDamage, _maxDamage);
+        }
 
         private void OnTriggerEnter(Collider other)
         {

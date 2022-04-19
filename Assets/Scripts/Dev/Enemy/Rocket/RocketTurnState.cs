@@ -12,11 +12,11 @@ namespace Rocket
         [SerializeField] private RocketExplosion _rocketExplosion;
         [SerializeField] private RocketMovement _rocketMovement;
         [SerializeField] private SmoothTurn _smoothTurn;
-        [SerializeField] private float _smallRadius = 3f;
+        [SerializeField] private float _smallRadius;
         
         private bool _isActivate;
 
-        private float _timerExplosion = 1.5f;
+        private float _timerExplosion = 15f;
 
         private void OnEnable()
         {
