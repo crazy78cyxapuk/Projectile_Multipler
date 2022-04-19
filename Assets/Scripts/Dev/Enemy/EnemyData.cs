@@ -9,6 +9,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] private int _countEnemies;
 
     [HideInInspector] public Transform enemy;
+    [HideInInspector] public Transform centerEnemy;
 
     public void Reset()
     {

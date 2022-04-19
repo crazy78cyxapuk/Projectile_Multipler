@@ -10,11 +10,14 @@ namespace Extension
 {
     public class CameraFinish : MonoBehaviour
     {
+        [SerializeField] private CameraData _cameraData;
         [SerializeField] private EnemyData _enemyData;
         [SerializeField] private TurnController _turnController;
         [SerializeField] private float _speed;
 
         [SerializeField] private Transform _targetForward;
+
+        [SerializeField] private SmoothTurn _smoothTurn;
         
         private UnityAction _disableFollow;
         
@@ -39,6 +42,11 @@ namespace Extension
         private void OnEnable()
         {
             _targetForward = _enemyData.enemy;
+
+            _smoothTurn.SetSpeed(_cameraData.speedRotationCamera);
+            _smoothTurn.SetTarget(_enemyData.centerEnemy);
+
+            GetComponent<CinemachineVirtualCamera>().enabled = false;
         }
 
         private void Update()

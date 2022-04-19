@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 5002173914690898730}
   - component: {fileID: 3091221838140614729}
   - component: {fileID: 3060449503362469577}
+  - component: {fileID: 6080728575158726494}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -236,10 +237,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d3c79a0ee4ac64a9692ecb52d26201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraData: {fileID: 11400000, guid: ceb9957b28c55134dbf4cf16cf3739fa, type: 2}
   _enemyData: {fileID: 11400000, guid: c21ec1a2b3110314a9fc7c713304d57a, type: 2}
   _turnController: {fileID: 11400000, guid: 5f4c0471e51be1f4dbb437f87b71134f, type: 2}
-  _speed: 15
+  _speed: 10
   _targetForward: {fileID: 0}
+  _smoothTurn: {fileID: 6080728575158726494}
 --- !u!114 &3091221838140614729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +273,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {x: 0, y: 0, z: -35}
   _speed: 10
+--- !u!114 &6080728575158726494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475532677151754012}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f6e8a1c329e5d458cf5902310e0b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0
+  _target: {fileID: 0}
+  _isBlockX: 0
+  _isInfinitiTMP: 1
+  _isRotateForward: 0
+  _maxTMP: 1
 --- !u!1 &475532677824711635
 GameObject:
   m_ObjectHideFlags: 0

@@ -87,6 +87,11 @@ namespace Extension
             _smoothTurn.enabled = true;
         }
 
+        public void SetSpeed(float speed)
+        {
+            _speed = speed;
+        }
+        
         // public void SetAllTargets(List<Transform> targets)
         // {
         //     _allTargets = targets;

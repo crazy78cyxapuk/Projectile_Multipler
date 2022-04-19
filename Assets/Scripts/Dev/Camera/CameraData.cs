@@ -8,6 +8,9 @@ using UnityEngine.Events;
 [CreateAssetMenu]
 public class CameraData : ScriptableObject
 {
+    [Header("Скорость перехода камеры на финише")]
+    public float speedRotationCamera;
+    
     private CameraShake _cameraShake;
     
     [HideInInspector] public CameraZoom cameraZoom;
