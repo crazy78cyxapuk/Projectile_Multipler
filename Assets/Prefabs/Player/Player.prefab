@@ -94,6 +94,7 @@ MonoBehaviour:
   _turnController: {fileID: 11400000, guid: 5f4c0471e51be1f4dbb437f87b71134f, type: 2}
   _arrowGrid: {fileID: 1471153000848824229}
   _arrowExplosion: {fileID: 3068068681162237574}
+  _allArrows: []
 --- !u!114 &6239445319557284868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,11 +188,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac71fb8fec2d0d45a0061d305495674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
   x_Space: 0.5
   y_Space: 3
   _columnLength: 9
   _rowLength: 0
+  _spawnRadius: 0
   _allArrows: []
 --- !u!114 &3068068681162237574
 MonoBehaviour:

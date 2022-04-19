@@ -13,6 +13,8 @@ namespace Arrow
         private List<ArrowFly> _allArrowFly = new List<ArrowFly>();
         private List<GameObject> _allLastArrows = new List<GameObject>();
 
+        [HideInInspector] public ArrowGrid arrowGrid;
+
         public void Reset()
         {
             _allArrowFly.Clear();
@@ -45,6 +47,8 @@ namespace Arrow
 
         public void RemoveLastArrow(GameObject arrow)
         {
+            arrowGrid.DestroyArrow(arrow.transform);
+            
             if (_allLastArrows.Contains(arrow))
             {
                 _allLastArrows.Remove(arrow);

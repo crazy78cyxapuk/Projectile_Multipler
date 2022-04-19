@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Arrow
 {
     public class ArrowGrid : MonoBehaviour
     {
+        [SerializeField] private StatusGame _statusGame;
         [SerializeField] private ArrowData _arrowData;
         [SerializeField] private float x_Space, y_Space;
         [SerializeField] private int _columnLength, _rowLength;
@@ -21,9 +23,11 @@ namespace Arrow
         private float x_Start = 0, y_Start = 0;
 
         private float _minX_Space = 0.1f, _maxX_Space = 3.5f;
-        private float _minRadius = 5, _maxRadius = 35;
+        private float _minRadius = 5, _maxRadius = 25;
         
         private ArrowGrid _arrowGrid;
+
+        private UnityAction _stopGrid;
 
         private void Awake()
         {
@@ -32,6 +36,12 @@ namespace Arrow
 
             x_Space = _minX_Space;
             _spawnRadius = _minRadius;
+
+            _stopGrid += StopGrid;
+            _statusGame.AddActionLose(_stopGrid);
+            _statusGame.AddActionWin(_stopGrid);
+
+            _arrowData.arrowGrid = _arrowGrid;
         }
 
         private void OnEnable()
@@ -92,6 +102,12 @@ namespace Arrow
 
         private void GridSphere()
         {
+            if (_allArrows.Count == 0)
+            {
+                _statusGame.ExecuteLose();
+                return;
+            }
+            
             for (int i = 0; i < _allArrows.Count; i++)
             {
                 _allArrows[i].localPosition = Vector3.zero + _arrowPosition[_allArrows[i]] * _spawnRadius;
@@ -154,6 +170,24 @@ namespace Arrow
                 else
                 {
                     _spawnRadius = targetRadius;
+                }
+            }
+        }
+
+        private void StopGrid()
+        {
+            _arrowGrid.enabled = false;
+        }
+
+        public void DestroyArrow(Transform arrow)
+        {
+            if (_allArrows.Contains(arrow))
+            {
+                _allArrows.Remove(arrow);
+                
+                if (_allArrows.Count == 0)
+                {
+                    _statusGame.ExecuteLose();
                 }
             }
         }

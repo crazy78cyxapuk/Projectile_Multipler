@@ -48,7 +48,7 @@ namespace Rocket
         {
             yield return new WaitForSeconds(_timerExplosion);
             
-            _rocketExplosion.Explosion();
+            _rocketExplosion.Explosion(false);
         }
 
         IEnumerator WaitActivateAttack()

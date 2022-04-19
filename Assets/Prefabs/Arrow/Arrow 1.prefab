@@ -200,10 +200,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket_Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4925147717998461437, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
-      propertyPath: m_TagString
-      value: Arrow
-      objectReference: {fileID: 0}
     - target: {fileID: 6683695631967724739, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
       propertyPath: playOnAwake
       value: 1

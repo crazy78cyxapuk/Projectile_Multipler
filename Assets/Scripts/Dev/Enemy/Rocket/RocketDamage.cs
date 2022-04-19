@@ -22,7 +22,7 @@ namespace Rocket
             if (other.gameObject.TryGetComponent(out ArrowProgression arrowProgression))
             {
                 arrowProgression.TakeDamage(TypeGate.Subtraction, _damage);
-                _rocketExplosion.Explosion();
+                _rocketExplosion.Explosion(true);
             }
         }
     }

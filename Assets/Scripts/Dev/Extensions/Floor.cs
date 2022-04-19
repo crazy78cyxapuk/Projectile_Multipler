@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Arrow;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ namespace Extension
             {
                 //other.gameObject.SetActive(false);
                 _arrowData.RemoveLastArrow(other.gameObject);
+                Destroy(other.gameObject);
             }
         }
     }

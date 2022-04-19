@@ -31,7 +31,7 @@ namespace Arrow
         
         private int _nextArrowCount;
 
-        private List<Transform> _allArrows = new List<Transform>();
+        [SerializeField] private List<Transform> _allArrows = new List<Transform>();
         private float _firstRadius;
 
         public delegate void OnArrowsChanged(int arrowCount);

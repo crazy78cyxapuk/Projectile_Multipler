@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Arrow;
 using Extension;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Enemy
         [SerializeField] private GameObject _hole;
         [SerializeField] private GameObject _model;
         [SerializeField] private HealthBar _healthBar;
+        [SerializeField] private ArrowData _arrowData;
 
         private bool _isDie = false;
         
@@ -39,7 +41,9 @@ namespace Enemy
                     }
                 }
 
-                other.gameObject.SetActive(false);
+                //other.gameObject.SetActive(false);
+                _arrowData.RemoveLastArrow(other.gameObject);
+                Destroy(other.gameObject);
             }
         }
 

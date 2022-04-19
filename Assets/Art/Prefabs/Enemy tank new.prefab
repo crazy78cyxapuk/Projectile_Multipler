@@ -99,6 +99,7 @@ MonoBehaviour:
   _hole: {fileID: 8644979356771951839}
   _model: {fileID: 5014795943198675374}
   _healthBar: {fileID: 4390298614203488052}
+  _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
 --- !u!1001 &1438423851111388644
 PrefabInstance:
   m_ObjectHideFlags: 0

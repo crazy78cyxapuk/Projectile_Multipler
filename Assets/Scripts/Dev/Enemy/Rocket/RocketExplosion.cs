@@ -10,12 +10,15 @@ namespace Rocket
         [SerializeField] private PoolObject _poolObject;
         [SerializeField] private CameraData _cameraData;
         
-        public void Explosion()
+        public void Explosion(bool isTurnShake)
         {
             gameObject.SetActive(false);
             _poolObject.AddExplosionFX(transform.position);
-            
-            _cameraData.TurnShake();
+
+            if (isTurnShake)
+            {
+                _cameraData.TurnShake();
+            }
         }
     }
 }
