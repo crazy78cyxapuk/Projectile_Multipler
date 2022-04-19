@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1335385859429395171}
   - component: {fileID: 4413497863758516055}
   - component: {fileID: 3561273722066915880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5945439660736177668}
   - component: {fileID: 6650951249951264764}
   - component: {fileID: 3351952816352708161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 3733568764337152834}
   - component: {fileID: 2670744836219737368}
   - component: {fileID: 8151506896872230983}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 5863933822338977684}
   - component: {fileID: 4588166654732059108}
   - component: {fileID: 4587964575877579895}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8993805280627250078}
   - component: {fileID: 7199172643288316369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: multiplier_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,6 +576,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8e77f10ef9de9ce4d8deb8bfdf1e6031, type: 2}
+    - target: {fileID: -3111565609762313623, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -3018423155895744171, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -584,9 +588,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8e553dce43e9f704bbf73cd3fa3794e1, type: 2}
+    - target: {fileID: -957553368917984563, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
       propertyPath: m_Name
       value: multiplier_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473311819551195840, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9163869582188070879, guid: dee8df1684aec6140a23da59dc6ba4d1, type: 3}
       propertyPath: m_CastShadows

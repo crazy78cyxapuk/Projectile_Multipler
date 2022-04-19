@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3504994108914412833}
   - component: {fileID: 8732729696647926258}
   - component: {fileID: 3331115145252704955}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arrow 1
   m_TagString: Arrow
   m_Icon: {fileID: 0}
@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4925147717998461437, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6683695631967724739, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
       propertyPath: playOnAwake
       value: 1
@@ -271,6 +275,18 @@ PrefabInstance:
     - target: {fileID: 6683695631967808881, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683695631986877501, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683695631986897023, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683695631987061833, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6683695631987174123, guid: 2d2b3bb9b18beef4383b4d0d330c29b2, type: 3}
       propertyPath: m_LocalScale.x

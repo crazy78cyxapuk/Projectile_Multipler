@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2973471649169353753}
   - component: {fileID: 451498138729203160}
   - component: {fileID: 676781116755317254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7719889495029318454}
   - component: {fileID: 498247862469935502}
   - component: {fileID: 8878646329223451176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +243,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3478882540797232266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: multiplier_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 8890054384203935181}
   - component: {fileID: 3463753651834011710}
   - component: {fileID: 3627546918297927281}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 240091600951542474}
   - component: {fileID: 2155865612694412557}
   - component: {fileID: 1729782695107690026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,6 +558,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8e77f10ef9de9ce4d8deb8bfdf1e6031, type: 2}
+    - target: {fileID: -3111565609762313623, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -2608208803866013591, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -577,6 +581,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
       propertyPath: m_Name
       value: multiplier_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2923660141659865991, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7594682145549988252, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393a9a1a1d28ee047aaf6e96f2372631, type: 3}
