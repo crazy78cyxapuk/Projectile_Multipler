@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bac71fb8fec2d0d45a0061d305495674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _arrowGridData: {fileID: 11400000, guid: 906646df198ad2f4bb18d164e561e6d5, type: 2}
   _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
   _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
   x_Space: 0.5

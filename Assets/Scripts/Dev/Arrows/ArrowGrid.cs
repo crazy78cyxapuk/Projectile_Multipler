@@ -9,6 +9,7 @@ namespace Arrow
 {
     public class ArrowGrid : MonoBehaviour
     {
+        [SerializeField] private ArrowGridData _arrowGridData;
         [SerializeField] private StatusGame _statusGame;
         [SerializeField] private ArrowData _arrowData;
         [SerializeField] private float x_Space, y_Space;
@@ -34,6 +35,9 @@ namespace Arrow
             _arrowGrid = GetComponent<ArrowGrid>();
             _arrowGrid.enabled = false;
 
+            _minRadius = _arrowGridData.minGridRadius;
+            _maxRadius = _arrowGridData.maxGridRadius;
+            
             x_Space = _minX_Space;
             _spawnRadius = _minRadius;
 
