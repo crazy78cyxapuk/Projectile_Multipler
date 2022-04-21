@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Arrow Grid Data
   m_EditorClassIdentifier: 
   minGridRadius: 5
-  maxGridRadius: 6
+  maxGridRadius: 25
