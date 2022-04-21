@@ -47,7 +47,7 @@ namespace Extension
             StopAllCoroutines();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
 
             switch (_currentMode)

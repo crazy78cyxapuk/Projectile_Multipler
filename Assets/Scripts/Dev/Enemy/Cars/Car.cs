@@ -37,7 +37,7 @@ namespace Enemy
                 {
                     Explosion();
 
-                    float countDamage = 10;
+                    float countDamage = 15;
                     _healthBar.TakeDamage(countDamage);
 
                     if (_healthBar.IsZeroHP())

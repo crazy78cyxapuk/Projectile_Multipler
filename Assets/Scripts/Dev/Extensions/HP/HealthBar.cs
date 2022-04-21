@@ -9,7 +9,7 @@ namespace Extension
     {
         [SerializeField] private StatusGame _statusGame;
         [SerializeField] private ViewHealthBar _viewHealthBar;
-        [SerializeField] private float _totalHP = 100f;
+        [SerializeField] private float _totalHP;
 
         private float _minHP = 0;
 
