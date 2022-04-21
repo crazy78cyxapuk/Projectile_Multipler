@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab354e83e3a0454385fdc64e7a1e2b1, type: 3}
   m_Name: Speed Player
   m_EditorClassIdentifier: 
-  speedStart: 15
+  speedStart: 30
   speedInLine: 7.5
   speedFinish: 10

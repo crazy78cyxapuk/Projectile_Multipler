@@ -140,7 +140,7 @@ MonoBehaviour:
   _speed: 400
   _speedToSide: 1.5
   _direction: {x: -1, y: 0, z: 0}
-  _maxDistanceToSide: 7
+  _maxDistanceToSide: 5
   _minDistanceY: -0.5
   _maxDistanceY: 2.5
 --- !u!54 &6239445319557284872
