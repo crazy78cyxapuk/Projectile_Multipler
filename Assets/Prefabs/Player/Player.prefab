@@ -176,6 +176,7 @@ MonoBehaviour:
   _movement: {fileID: 6239445319557284869}
   _arrowSpawn: {fileID: 6239445319557284870}
   _arrowGrid: {fileID: 1471153000848824229}
+  _speedRotate: 30
 --- !u!114 &1471153000848824229
 MonoBehaviour:
   m_ObjectHideFlags: 0

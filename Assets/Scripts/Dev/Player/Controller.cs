@@ -16,6 +16,8 @@ namespace Player
 
         [SerializeField] private ArrowGrid _arrowGrid;
 
+        [SerializeField] private float _speedRotate;
+
         private Vector2 _startPos;
         private Vector2 _direction;
         private float _minDistanceTouch = 2f;
@@ -26,6 +28,8 @@ namespace Player
         private Controller _controller;
 
         private bool _isMoveToSide = true;
+
+        private Transform _levelModel;
 
         private void Awake()
         {
@@ -50,16 +54,6 @@ namespace Player
 
         private void CheckInput()
         {
-            // if (Input.GetMouseButtonDown(0))
-            // {
-            //     _startPos = Input.mousePosition;
-            // }
-            //
-            // if (Input.GetMouseButton(0))
-            // {
-            //     CheckMousePosition();
-            // }
-
 #if UNITY_ANDROID
             CheckInputMobile();
 #endif
@@ -67,11 +61,6 @@ namespace Player
 #if  UNITY_EDITOR
             CheckInputEditor();
 #endif
-            
-            // if (Input.GetMouseButton(1))
-            // {
-            //     _arrowSpawn.AddArrows(1);
-            // }
         }
 
         private void CheckInputMobile()
@@ -92,15 +81,7 @@ namespace Player
                     
                     case TouchPhase.Stationary:
                         _startPos = Input.mousePosition;
-                        //_movement.StopMoveToSide();
                         break;
-                    
-                    // case TouchPhase.Ended:
-                    //     case TouchPhase.Canceled:
-                    //         
-                    //     _movement.StopMoveToSide();
-                    //     
-                    //     break;
                 }
             }
         }
@@ -127,18 +108,10 @@ namespace Player
             float distanceMouse = Vector2.Distance(_startPos, mousePos);
             if (distanceMouse > _minDistanceTouch)
             {
-                // if (_direction.x > 0)
-                // {
-                //     _movement.MoveToSide(TargetSide.Right);
-                // }
-                // else
-                // {
-                //     _movement.MoveToSide(TargetSide.Left);
-                // }
-
                 if (_isMoveToSide)
                 {
-                    _movement.MoveToSide(_direction, true);
+                    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!_movement.MoveToSide(_direction, true);
+                    RotateLevelModel(-_direction.x);
                 }
                 else
                 {
@@ -150,6 +123,14 @@ namespace Player
             _startPos = mousePos;
         }
 
+        private void RotateLevelModel(float direction)
+        {
+            float speed = direction * _speedRotate * Time.deltaTime;
+            Vector3 target = new Vector3(1, 0, 0) * speed;
+            //_levelModel.eulerAngles += target;
+            _levelModel.Rotate(target);
+        }
+        
         private Vector2 CheckMaxDirection(Vector2 direction)
         {
             float max = 20f;
@@ -188,6 +169,7 @@ namespace Player
 
         private void StartController()
         {
+            _levelModel = _turnController.allModels;
             _controller.enabled = true;
         }
 

@@ -539,6 +539,7 @@ MonoBehaviour:
   _playUI: {fileID: 1321320165}
   _winUI: {fileID: 1871416531}
   _loseUI: {fileID: 1133079884}
+  _delayShowScreen: 1
 --- !u!1 &1725645106
 GameObject:
   m_ObjectHideFlags: 0

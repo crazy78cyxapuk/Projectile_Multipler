@@ -11,6 +11,9 @@ public class CameraData : ScriptableObject
     [Header("Скорость перехода камеры на финише")]
     public float speedRotationCamera;
     
+    [Header("Насколько поворачивать камеру")]
+    public float angleRotationCamera;
+    
     private CameraShake _cameraShake;
     
     [HideInInspector] public CameraZoom cameraZoom;

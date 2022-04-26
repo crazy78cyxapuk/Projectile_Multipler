@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Arrow;
 using Extension;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Rocket
 {
@@ -64,7 +65,12 @@ namespace Rocket
             Transform target = arrowSpawn.transform;
             _rocketMovement.SetTarget(target);
             _smoothTurn.SetTarget(target);
-            //StartCoroutine(WaitActivateAttack());
+            _isActivate = true;
+        }
+
+        private void ActivateAttack()
+        {
+            GetComponent<SphereCollider>().radius = _smallRadius;
             _isActivate = true;
         }
     }

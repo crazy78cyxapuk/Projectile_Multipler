@@ -8,6 +8,8 @@ public class TurnController : ScriptableObject
 {
     [SerializeField] private List<UnityAction> _allTurnAction = new List<UnityAction>();
 
+    public Transform allModels;
+    
     public void Reset()
     {
         _allTurnAction.Clear();

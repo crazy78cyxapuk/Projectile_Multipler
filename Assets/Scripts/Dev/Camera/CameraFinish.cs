@@ -15,6 +15,8 @@ namespace Extension
         [SerializeField] private TurnController _turnController;
         [SerializeField] private float _speed;
 
+        [SerializeField] private RotateToAngle _rotateToAngle;
+
         [SerializeField] private Transform _targetForward;
 
         [SerializeField] private SmoothTurn _smoothTurn;
@@ -43,10 +45,15 @@ namespace Extension
         {
             _targetForward = _enemyData.enemy;
 
-            _smoothTurn.SetSpeed(_cameraData.speedRotationCamera);
-            _smoothTurn.SetTarget(_enemyData.centerEnemy);
+            //_smoothTurn.SetSpeed(_cameraData.speedRotationCamera);
+            //_smoothTurn.SetTarget(_enemyData.centerEnemy);
+            _rotateToAngle.SetSpeed(_cameraData.speedRotationCamera);
+            _rotateToAngle.SetAngle(_cameraData.angleRotationCamera);
+            _rotateToAngle.enabled = true;
 
             GetComponent<CinemachineVirtualCamera>().enabled = false;
+
+            _isActivate = true;
         }
 
         private void Update()
@@ -54,7 +61,7 @@ namespace Extension
             if (_isActivate)
             {
                 MoveUP();
-                MoveForward();
+                //MoveForward();
             }
         }
 
@@ -68,9 +75,10 @@ namespace Extension
         private void MoveUP()
         {
             float tmp = _speed * Time.deltaTime;
-            _cinemachineTransposer.m_FollowOffset += new Vector3(0, tmp, -tmp);
+            //_cinemachineTransposer.m_FollowOffset += new Vector3(0, tmp, -tmp);
+            transform.position += Vector3.up * tmp;
 
-            _speed -= 2 * Time.deltaTime;
+            _speed -= 1.5f * Time.deltaTime;
             if (_speed <= 0)
             {
                 _cameraFinish.enabled = false;
