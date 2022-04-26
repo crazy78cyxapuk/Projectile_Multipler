@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Speed Player
   m_EditorClassIdentifier: 
   speedStart: 30
-  speedInLine: 7.5
-  speedFinish: 10
+  speedInLine: 15
+  speedFinish: 17
