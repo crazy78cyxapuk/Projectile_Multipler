@@ -100,6 +100,7 @@ MonoBehaviour:
   _model: {fileID: 7838604856217284589}
   _healthBar: {fileID: 8119069175665691696}
   _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
+  _centerEnemy: {fileID: 0}
 --- !u!1001 &4433087195449762757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8907225055668096513, guid: 33bef824dcf00e44785111fbd067739d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.56
+      value: -2.15
       objectReference: {fileID: 0}
     - target: {fileID: 8907225055668096513, guid: 33bef824dcf00e44785111fbd067739d, type: 3}
       propertyPath: m_LocalPosition.z

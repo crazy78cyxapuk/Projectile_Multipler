@@ -50,15 +50,6 @@ namespace Player
 
         private void CheckInput()
         {
-            // if (Input.GetMouseButtonDown(0))
-            // {
-            //     _startPos = Input.mousePosition;
-            // }
-            //
-            // if (Input.GetMouseButton(0))
-            // {
-            //     CheckMousePosition();
-            // }
 
 #if UNITY_ANDROID
             CheckInputMobile();
@@ -67,11 +58,6 @@ namespace Player
 #if  UNITY_EDITOR
             CheckInputEditor();
 #endif
-            
-            // if (Input.GetMouseButton(1))
-            // {
-            //     _arrowSpawn.AddArrows(1);
-            // }
         }
 
         private void CheckInputMobile()
@@ -92,15 +78,7 @@ namespace Player
                     
                     case TouchPhase.Stationary:
                         _startPos = Input.mousePosition;
-                        //_movement.StopMoveToSide();
                         break;
-                    
-                    // case TouchPhase.Ended:
-                    //     case TouchPhase.Canceled:
-                    //         
-                    //     _movement.StopMoveToSide();
-                    //     
-                    //     break;
                 }
             }
         }
@@ -127,14 +105,6 @@ namespace Player
             float distanceMouse = Vector2.Distance(_startPos, mousePos);
             if (distanceMouse > _minDistanceTouch)
             {
-                // if (_direction.x > 0)
-                // {
-                //     _movement.MoveToSide(TargetSide.Right);
-                // }
-                // else
-                // {
-                //     _movement.MoveToSide(TargetSide.Left);
-                // }
 
                 if (_isMoveToSide)
                 {
@@ -142,7 +112,6 @@ namespace Player
                 }
                 else
                 {
-                    //_arrowGrid.EditSpace(_direction / 100);
                     _arrowGrid.EditSpace(_direction.x / 50);
                 }
             }

@@ -45,11 +45,6 @@ namespace Player
             _firstPosition = transform.localPosition;
         }
 
-        // private void FixedUpdate()
-        // {
-        //     MoveForward();
-        // }
-
         public void StartMove()
         {
             _movement.enabled = true;
@@ -62,7 +57,6 @@ namespace Player
 
         private void MoveForward()
         {
-            //transform.position += _direction * _speed * Time.deltaTime;
             _rb.velocity = _direction * _speed * Time.fixedDeltaTime;
         }
 
@@ -153,17 +147,7 @@ namespace Player
             if (distance < _maxDistanceToSide)
             {
                 transform.localPosition = offset;
-                //_rb.velocity = editDirection * _speedToSide;
             }
-            // else
-            // {
-            //     StopMoveToSide();
-            // }
         }
-
-        // public void StopMoveToSide()
-        // {
-        //     _rb.velocity = Vector3.zero;
-        // }
     }
 }
