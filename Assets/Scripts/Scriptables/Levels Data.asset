@@ -15,6 +15,6 @@ MonoBehaviour:
   _allLevels:
   - level: {fileID: 4521814394267424127, guid: a33718baa8f8c7147baf522364524d69, type: 3}
   - level: {fileID: 4521814394267424127, guid: bddded3772c12a74ba68ec04a6a67a9b, type: 3}
-  _isTestMode: 1
+  _isTestMode: 0
   _testLevel:
     level: {fileID: 4521814394267424127, guid: bddded3772c12a74ba68ec04a6a67a9b, type: 3}
