@@ -17,7 +17,8 @@ namespace Extension
 
         [SerializeField] private Transform _targetForward;
 
-        [SerializeField] private SmoothTurn _smoothTurn;
+       // [SerializeField] private SmoothTurn _smoothTurn;
+       [SerializeField] private RotateToAngle _rotateToAngle;
         
         private UnityAction _disableFollow;
         
@@ -43,8 +44,12 @@ namespace Extension
         {
             _targetForward = _enemyData.enemy;
 
-            _smoothTurn.SetSpeed(_cameraData.speedRotationCamera);
-            _smoothTurn.SetTarget(_enemyData.centerEnemy);
+            //_smoothTurn.SetSpeed(_cameraData.speedRotationCamera);
+            //_smoothTurn.SetTarget(_enemyData.centerEnemy);
+            
+            _rotateToAngle.SetAngle(_cameraData.targetAngleFinish);
+            _rotateToAngle.SetSpeed(_cameraData.speedRotationCamera);
+            _rotateToAngle.enabled = true;
 
             GetComponent<CinemachineVirtualCamera>().enabled = false;
         }

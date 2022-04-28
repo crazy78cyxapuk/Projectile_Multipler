@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f113a2c8b806aed459e556fc62f4fd61, type: 3}
   m_Name: Camera Data
   m_EditorClassIdentifier: 
-  speedRotationCamera: 10
+  speedRotationCamera: 20
+  targetAngleFinish: 50
   cameraZoom: {fileID: 0}
