@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeDark
       objectReference: {fileID: 0}
+    - target: {fileID: 130900, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 477408, guid: c4a37725ffa1ac649ad3d2a26f08edcc, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -121,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 134572, guid: 7c1b627e705f998448adac9689c44505, type: 3}
       propertyPath: m_Name
       value: FlamethrowerCartoonyFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 134572, guid: 7c1b627e705f998448adac9689c44505, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 436748, guid: 7c1b627e705f998448adac9689c44505, type: 3}
       propertyPath: m_RootOrder
