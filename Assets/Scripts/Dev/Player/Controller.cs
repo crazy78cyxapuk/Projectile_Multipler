@@ -45,6 +45,8 @@ namespace Player
             
             _controller = GetComponent<Controller>();
             _controller.enabled = false;
+
+            _speedRotate = 30f;
         }
 
         private void Update()
