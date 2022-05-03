@@ -14,6 +14,8 @@ namespace ScreenPanel
         [SerializeField] private WinUI _winUI;
         [SerializeField] private LoseUI _loseUI;
 
+        [SerializeField] private float _delayShowFinalScreen;
+
         private UnityAction _startGame, _loseGame, _winGame;
         
         private void Awake()
@@ -43,14 +45,28 @@ namespace ScreenPanel
 
         private void OnWin()
         {
-            _playUI.gameObject.SetActive(false);
-            _winUI.gameObject.SetActive(true);
+            StartCoroutine(WaitActivateFinalScreen(true));
         }
 
         private void OnLose()
         {
+            StartCoroutine(WaitActivateFinalScreen(false));
+        }
+
+        IEnumerator WaitActivateFinalScreen(bool isWin)
+        {
             _playUI.gameObject.SetActive(false);
-            _loseUI.gameObject.SetActive(true);
+            
+            yield return new WaitForSeconds(_delayShowFinalScreen);
+
+            if (isWin)
+            {
+                _winUI.gameObject.SetActive(true);
+            }
+            else
+            {
+                _loseUI.gameObject.SetActive(true);
+            }
         }
     }
 }
