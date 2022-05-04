@@ -9,7 +9,7 @@ public class ClikInit : MonoBehaviour
 {
     private void Awake()
     {
-        //TTPCore.Setup();
+        TTPCore.Setup();
         SceneManager.LoadScene(SceneNames.GetNameGameScene());
     }
 }
