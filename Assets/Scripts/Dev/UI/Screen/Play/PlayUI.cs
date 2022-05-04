@@ -20,7 +20,7 @@ public class PlayUI : MonoBehaviour
 
     public void RepeatLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneNames.GetNameGameScene());
     }
 
     private void TurnHelpPanel()
