@@ -23,6 +23,6 @@ public class LoseUI : MonoBehaviour
     }
     public void Repeat()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
     }
 }

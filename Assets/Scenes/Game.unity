@@ -189,6 +189,7 @@ MonoBehaviour:
   _levelsData: {fileID: 11400000, guid: d0cabb3e91f92274cb723e69c630f518, type: 2}
   _enemyData: {fileID: 11400000, guid: c21ec1a2b3110314a9fc7c713304d57a, type: 2}
   _arrowData: {fileID: 11400000, guid: ef217f6802c219547b3fae53716c32e3, type: 2}
+  _analyticsManager: {fileID: 517464415}
 --- !u!114 &517464415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,9 +199,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 517464412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aaef9509694ff042b0ce8b2fe4fdc74, type: 3}
+  m_Script: {fileID: 11500000, guid: 88aca4630ae6de64c81dc5a10788ae40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusGame: {fileID: 11400000, guid: eb7a19eeaf63a2a47b4637b805378b85, type: 2}
 --- !u!1 &634955418
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +731,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1425783153}
     m_Modifications:
+    - target: {fileID: 413295849471048288, guid: 9b5ddd9e5ae98a647a1fa76df1ec78d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.005126953
+      objectReference: {fileID: 0}
+    - target: {fileID: 413295849471048288, guid: 9b5ddd9e5ae98a647a1fa76df1ec78d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 525.7859
+      objectReference: {fileID: 0}
     - target: {fileID: 1936572621704841466, guid: 9b5ddd9e5ae98a647a1fa76df1ec78d5, type: 3}
       propertyPath: m_Name
       value: Play

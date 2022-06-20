@@ -26,6 +26,6 @@ public class WinUI : MonoBehaviour
 
     public void Next()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
     }
 }

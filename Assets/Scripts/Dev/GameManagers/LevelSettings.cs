@@ -13,6 +13,7 @@ public class LevelSettings : MonoBehaviour
     [SerializeField] private LevelsData _levelsData;
     [SerializeField] private EnemyData _enemyData;
     [SerializeField] private ArrowData _arrowData;
+    [SerializeField] private AnalyticsManager _analyticsManager;
 
     private void Awake()
     {
@@ -27,6 +28,8 @@ public class LevelSettings : MonoBehaviour
         _turnController.Reset();
         _enemyData.Reset();
         _arrowData.Reset();
+        
+        _analyticsManager.InitEvents();
     }
 
     private void CreateLevel()
