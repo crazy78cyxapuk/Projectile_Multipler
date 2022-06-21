@@ -18,7 +18,7 @@ MonoBehaviour:
   appIds:
   - 714129796361724
   appLabels:
-  - Projectile Multiplier
+  - App Name
   cookie: 1
   logging: 1
   status: 1
