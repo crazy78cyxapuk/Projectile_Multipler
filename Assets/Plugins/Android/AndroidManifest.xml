@@ -20,6 +20,7 @@
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb714129796361724" />
     <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="true" />
     <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="true" />
+    <meta-data android:name="com.facebook.sdk.ClientToken" android:value="GGQVlZANnJfZAkdDVGpEVnJnSTJhSF9ZAdlJpRGFCTTE5eHZAKNUdfdmxraXlQaFp1TTN1cTZAvZAHBkV0FfWVZAnby1aV1BEWlZATeTIwWngzRWJuYUR1WmtLYWJmMnF4aUw4dENqVkxMRFg2eHdaQy1KUXpVVllsc2Q0S0NvS3FGblVuRzFXZAwZDZD" />
     <provider android:name="com.facebook.FacebookContentProvider" android:authorities="com.facebook.app.FacebookContentProvider714129796361724" android:exported="true" />
   </application>
 </manifest>

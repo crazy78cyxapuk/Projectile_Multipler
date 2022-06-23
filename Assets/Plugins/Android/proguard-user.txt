@@ -15,6 +15,8 @@
 
 -keep public class com.facebook.**{public *; } 
 -keep public class com.facebook.internal.**{ public *; }
+-keep class com.facebook.unity.* {*;}
+-keep class com.facebook.** { *; }
 
 -keep public class com.adjust.sdk.** { *; }
 -keep class com.google.android.gms.common.ConnectionResult {
@@ -28,12 +30,3 @@
     boolean isLimitAdTrackingEnabled();
 }
 -keep public class com.android.installreferrer.** { *; }
-
--keep class  com.gameanalytics.sdk { *; }
--keep class  com.gameanalytics.sdk.** { *; }
- 
--keep class  com.gameanalytics.sdk.GAPlatform { *; }
--keep class  com.gameanalytics.sdk.GAPlatform.** { *; }
--keep class android.net.ConnectivityManager.** { *; }
--keep class com.google.android.instantapps.InstantApps { *; }
--keepclassmembers class com.google.android.instantapps.InstantApps { *; }

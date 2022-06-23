@@ -26,6 +26,7 @@ public class AnalyticsManager : MonoBehaviour
     {
         string progress = "lvl: " + LevelData.GetNumberLevel();
         GameAnalyticsSDK.GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, progress);
+        Debug.LogError(progress);
     }
     
     private void WinGame()
